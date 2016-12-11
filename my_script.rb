@@ -14,3 +14,9 @@ g = MyHello.new("world")
 
 # Output "Hello World"
 g.Sayhi
+
+def square(x)
+  x*x
+end
+
+puts square(5)
