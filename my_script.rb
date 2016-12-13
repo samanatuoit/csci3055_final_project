@@ -21,7 +21,15 @@ end
 
 puts square(5)
 
-
+def linearsearch()
+  list = Array[4, 5, 2, 1, 3]
+  key = 2
+  for i in 0..list.length
+    if list[i] == key
+      puts "target found at array index #{i}"
+    end
+  end
+end
 def bubblesort()
 
   list = Array[4, 5, 2, 1, 3]
@@ -40,5 +48,6 @@ def bubblesort()
   puts "#{list}"
 end
 
-bubblesort
+linearsearch
+#bubblesort
 # bubblesort(numbers)
