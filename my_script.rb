@@ -48,6 +48,18 @@ def bubblesort(list)
   #puts "Bubblesort sorted list: #{list}"
 end
 
+def insertionsort(list)
+  for j in 0..list.length-1
+    key = list[j]
+    i = j - 1
+    while i > 0 && list[i] > key
+      list[i + 1] = list[i]
+      i -= 1
+    end
+    list[i + 1] = key
+  end
+end
+
 def binarysearch(list, target)
   max = list.length-1
   #puts "max = #{max}"
@@ -84,6 +96,7 @@ puts "5 squared = #{square(5)}"
 linearsearch(list, 2)
 sortedlist = bubblesort(list)
 puts "Bubblesort sorted list: #{sortedlist}"
+puts "Insertion sort sorted list: #{list}"
 puts "Binary search: target value of 4 is at index #{binarysearch(sortedlist, 4)}"
 puts "factorial 5 = #{myfactorial(5)}"
 
