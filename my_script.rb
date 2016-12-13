@@ -20,7 +20,6 @@ def square(x)
   x*x
 end
 
-puts "5 squared = #{square(5)}"
 
 # An unsorted array
 list = Array[4, 5, 2, 1, 3]
@@ -69,10 +68,22 @@ def binarysearch(list, target)
   end
 
   return "Not found"
-
-
 end
+
+def myfactorial(n)
+  if n == 1
+    return 1
+  elsif n == 0
+    return 0
+  else
+    return n * myfactorial(n-1)
+  end
+end
+
+puts "5 squared = #{square(5)}"
 linearsearch(list, 2)
 sortedlist = bubblesort(list)
 puts "Bubblesort sorted list: #{sortedlist}"
 puts "Binary search: target value of 4 is at index #{binarysearch(sortedlist, 4)}"
+puts "factorial 5 = #{myfactorial(5)}"
+
