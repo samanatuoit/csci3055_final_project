@@ -21,8 +21,6 @@ def square(x)
 end
 
 
-# An unsorted array
-list = Array[4, 5, 2, 1, 3]
 
 # linear search
 
@@ -49,15 +47,42 @@ def bubblesort(list)
 end
 
 def insertionsort(list)
-  for j in 0..list.length-1
+  for j in 1..list.length-1
     key = list[j]
     i = j - 1
-    while i > 0 && list[i] > key
+    while i > -1 && list[i] > key
       list[i + 1] = list[i]
       i -= 1
     end
     list[i + 1] = key
   end
+  return list
+end
+
+def quicksort(list, p, r)
+  if p < r
+    q = partition(list, p, r)
+    quicksort(list, p, q - 1)
+    quicksort(list, q + 1, r)
+  end
+end
+
+def partition(list, p, r)
+  x = list[r]
+  i = p - 1
+  for j in p..r-1
+    if list[j] <= x
+      i += 1
+      temp = list[i]
+      list[i] = list[j]
+      list[j] = temp
+    end
+
+  end
+  temp = list[i + 1]
+  list[i + 1] = list[r]
+  list[r] = temp
+  return i + 1
 end
 
 def binarysearch(list, target)
@@ -92,11 +117,19 @@ def myfactorial(n)
   end
 end
 
+# An unsorted array
+list = [4, 5, 2, 1, 3]
+
 puts "5 squared = #{square(5)}"
 linearsearch(list, 2)
 sortedlist = bubblesort(list)
 puts "Bubblesort sorted list: #{sortedlist}"
-puts "Insertion sort sorted list: #{list}"
+list2 = [45, 10, 19, 87]
+sortedlist2 = insertionsort(list2)
+puts "Insertion sort sorted list: #{sortedlist2}"
+list3 = [14, 10, 11, 12, 13]
+puts "list before quicksort = #{list3}"
+puts "Quicksort sorted list: #{list3}"
 puts "Binary search: target value of 4 is at index #{binarysearch(sortedlist, 4)}"
 puts "factorial 5 = #{myfactorial(5)}"
 
