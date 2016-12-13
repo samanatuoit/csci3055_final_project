@@ -43,7 +43,6 @@ def bubblesort(list)
     end
   end
   return list
-  #puts "Bubblesort sorted list: #{list}"
 end
 
 def insertionsort(list)
@@ -85,15 +84,14 @@ def partition(list, p, r)
   return i + 1
 end
 
+
+
 def binarysearch(list, target)
   max = list.length-1
-  #puts "max = #{max}"
   min = 0
-  #puts "min = #{min}"
   while max >= min
 
     guess = (max + min) / 2
-    #puts "guess = #{guess}"
     if list[guess] == target
       return guess
 
@@ -120,16 +118,31 @@ end
 # An unsorted array
 list = [4, 5, 2, 1, 3]
 
+# Square the number 5
 puts "5 squared = #{square(5)}"
+
+# Linear search with target of 2
 linearsearch(list, 2)
+
+# Bubblesort
+puts "list before bubblesort: #{list}"
 sortedlist = bubblesort(list)
 puts "Bubblesort sorted list: #{sortedlist}"
+
+# Insertion sort
 list2 = [45, 10, 19, 87]
+puts "list before insertion sort: #{list2}"
 sortedlist2 = insertionsort(list2)
 puts "Insertion sort sorted list: #{sortedlist2}"
+
+# Quicksort
 list3 = [14, 10, 11, 12, 13]
 puts "list before quicksort = #{list3}"
+quicksort(list3, 0, list3.length-1)
 puts "Quicksort sorted list: #{list3}"
+
+# Binary search with target of 4
 puts "Binary search: target value of 4 is at index #{binarysearch(sortedlist, 4)}"
+# factorial
 puts "factorial 5 = #{myfactorial(5)}"
 
